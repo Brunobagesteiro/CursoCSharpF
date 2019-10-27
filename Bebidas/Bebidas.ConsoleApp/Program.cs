@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Bebidas.ConsoleApp.Classes;
+
 namespace Bebidas.ConsoleApp
 {
     class Program
@@ -12,33 +14,36 @@ namespace Bebidas.ConsoleApp
         {
             Console.WriteLine("********* Loja de Bebidas********");
             Console.WriteLine("Bem Vindos a Loja");
-            List<string> listaClientes = new List<string>();
 
+                Dados dados = new Dados();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
-                string nc = CadastrarCliente();
-                listaClientes.Add(nc);
+                Pessoa p = CadastrarCliente();
+           
+                dados.Salvar(p);
             }
-           // Como fazer por ordem albatica, listaClientes = listaClientes.OrderBy(i => i).ToList();
-            foreach(string item in listaClientes)
 
-            Console.WriteLine($" Nome: {item}!");
-            //Para comentar varias linhas e selecionarn juntos clicar Ctrl +K+C  e desfazer Ctrl+K+U..
+            List<Pessoa> listaClientes = dados.LerTodos();
+            foreach (Pessoa item in listaClientes)
+            {
+                Console.WriteLine($" Nome completo: {item.Nome} {item.Sobrenome}!");
+            }
+            
            
             Console.ReadKey();
         }
-        static string CadastrarCliente()
+        static Pessoa CadastrarCliente()
         {
+            Pessoa pessoa1 = new Pessoa() ; 
+
             Console.Write("Digite o seu nome: ");
-            string nome = Console.ReadLine();
+            pessoa1.Nome = Console.ReadLine();
             Console.Write("Digite seu sobrenome ");
-            string sobrenome = Console.ReadLine();
+            pessoa1.Sobrenome = Console.ReadLine();
 
-            string nomeCompleto = $"{ nome } { sobrenome}";
 
-            return nomeCompleto;
-        
+            return pessoa1;
         }
     }
 }
