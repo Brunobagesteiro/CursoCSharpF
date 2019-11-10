@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bebidas.ConsoleApp.Classes
 {
-    class Pessoa
+   public class Pessoa
     {
         #region Propriedades
 

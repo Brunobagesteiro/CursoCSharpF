@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bebidas.ConsoleApp.Classes
 {
-    class Dados
+   public class Dados
     {
             string caminho = @"C:\CSharpF\Pessoas.txt";
 
@@ -34,6 +34,7 @@ namespace Bebidas.ConsoleApp.Classes
 
                 lista.Add(pessoa);
             }
+            arquivo.Close();
             return lista;
 
         }
